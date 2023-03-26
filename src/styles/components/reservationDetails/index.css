@@ -1,0 +1,35 @@
+.details-wrap {
+  text-align: center;
+  width: clamp(360px, 40%, 400px);
+  height: 80%;
+  border-radius: 15px;
+  background-color: white;
+}
+.grid-area {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 44px 44px 44px;
+  text-align: center;
+  align-items: center;
+  justify-self: flex-start;
+}
+
+.requested-term {
+  padding: 40px 0px;
+}
+
+dd {
+  all: unset;
+  width: calc(100% - 24px);
+  text-align: left;
+  padding-left: 24px;
+}
+
+dt {
+  width: 100%;
+  color: rgb(145, 145, 145);
+}
+
+p {
+  font-size: 23px;
+}

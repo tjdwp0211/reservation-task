@@ -1,0 +1,22 @@
+.cards-wrapper {
+  all: unset;
+  width: 60%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.container {
+  width: calc(100% - 48px * 2);
+  height: 16%;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  padding: 24px 48px;
+}
+
+.container > div > p {
+  margin: 0;
+  height: 50%;
+  padding: auto 0;
+  font-size: clamp(1rem, 1.5vw, 2.2rem);
+}
