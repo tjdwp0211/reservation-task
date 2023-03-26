@@ -5,7 +5,7 @@ async function Card() {
   const cardWrapper = document.querySelector(".cards-wrapper");
   response.forEach((element) => {
     console.log("element :", element);
-    cardWrapper.createElement("li");
+    // cardWrapper.createElement("li");
   });
   const time = document.querySelector(".time");
   const state = document.querySelector(".state");
