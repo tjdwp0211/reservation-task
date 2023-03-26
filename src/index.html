@@ -1,13 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
+    <base href="/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello</title>
-    <link />
   </head>
   <body>
-    <h1>hihi</h1>
-    <script src="./index.js"></script>
+    <h1>예약 목록</h1>
+    <main>
+      <ul class="cards-wrapper">
+        <li class="container">
+          <div>
+            <p class="time"></p>
+            <p class="state"></p>
+          </div>
+        </li>
+      </ul>
+      <div class="details-wrap">
+        <div class="reservation-information">
+          <p>예약 정보</p>
+          <div class="grid-area">
+            <dt>예약 상태</dt>
+            <dd></dd>
+            <dt>예약 시간</dt>
+            <dd></dd>
+            <dt>접수 시간</dt>
+            <dd></dd>
+          </div>
+        </div>
+        <div class="client-information">
+          <p>고객 정보</p>
+          <div class="grid-area">
+            <dt>고객 성명</dt>
+            <dd>value</dd>
+            <dt>고객 등급</dt>
+            <dd>value</dd>
+            <dt>고객 메모</dt>
+            <dd>value</dd>
+          </div>
+        </div>
+        <div class="requested-term">
+          <div class="grid-area">
+            <dt>요청 사항</dt>
+            <dd>value</dd>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
