@@ -6,7 +6,7 @@ module.exports = (_, argv) => {
   const isDevelopment = argv.mode !== "production";
 
   return {
-    entry: "./src/index.js",
+    entry: "/src/scripts/index.js",
     output: {
       filename: "bundle.js",
       path: path.resolve(__dirname, "build"),
@@ -38,7 +38,7 @@ module.exports = (_, argv) => {
       ],
     },
     plugins: [
-      new HtmlWebpackPlugin({ template: "./src/index.html" }), //
+      new HtmlWebpackPlugin({ template: "./src/index.html" }),
       new MiniCssExtractPlugin({ filename: "style.css" }),
     ],
   };
