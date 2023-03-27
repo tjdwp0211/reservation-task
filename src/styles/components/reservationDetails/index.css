@@ -8,10 +8,10 @@
 }
 
 div > dd {
-  font-size: clamp(12px, 1.1vw, 16px);
+  font-size: clamp(12px, 1.3vw, 16px);
 }
 div > dt {
-  font-size: clamp(14px, 1.1vw, 28px);
+  font-size: clamp(14px, 1.3vw, 20px);
 }
 
 .grid-area {
