@@ -7,7 +7,7 @@
 .time-status-wrapper > p,
 .details-wrapper > p,
 .container > :is(button.reserved, button.seated) {
-  font-size: clamp(14px, 0.1vw, 20px);
+  font-size: clamp(14px, 1.1vw, 16px);
   padding: 4px 0px;
 }
 
@@ -25,14 +25,14 @@
 }
 
 .time-status-wrapper {
-  width: 80px;
+  width: 60px;
   padding-right: 12px;
 }
 
 .time-status-wrapper > p {
   width: 90%;
   height: 50%;
-  margin: 0;
+  margin: 0px;
   text-align: center;
 }
 
@@ -45,7 +45,7 @@ p.seated {
 }
 
 .details-wrapper {
-  width: 70%;
+  width: calc(70% - 60px);
   padding-right: 8px;
 }
 
@@ -60,7 +60,7 @@ p.seated {
 
 .container > button {
   width: 15%;
-  min-width: 60px;
+  min-width: 48px;
   height: 44px;
   border-radius: 6px;
   cursor: pointer;
@@ -78,7 +78,7 @@ button.seated {
   border: 1px solid #162149;
 }
 
-@media (height <= 655px) and (width <= 320px) {
+@media (max-height: 655px) and (max-width: 720px) {
   .cards-wrapper {
     width: calc(100% - 16px);
     height: fit-content;
@@ -89,10 +89,7 @@ button.seated {
     padding: 12px;
   }
   .time-status-wrapper {
-    width: 60px;
+    width: 52px;
     padding: 0;
-  }
-  .details-wrapper {
-    width: 140px;
   }
 }
