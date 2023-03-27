@@ -28,9 +28,13 @@ main > h1 {
 }
 
 @media (max-height: 655px) and (max-width: 720px) {
+  body {
+    overflow: hidden;
+  }
   body > main {
     overflow: auto;
     height: fit-content;
+    min-height: fit-content;
     padding-bottom: 24px;
   }
 }
