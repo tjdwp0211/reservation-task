@@ -1,4 +1,4 @@
-const printOutReservationStatus = (el, status) => {
+function printOutReservationStatus(el, status) {
   const element = el;
   if (status === "reserved") {
     element.innerHTML = "예약";
@@ -9,6 +9,6 @@ const printOutReservationStatus = (el, status) => {
   } else if (status === "done") {
     element.innerHTML = "퇴석";
   }
-};
+}
 
 export default printOutReservationStatus;
