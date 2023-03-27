@@ -3,24 +3,28 @@
   width: 60%;
   height: 80%;
   overflow-y: scroll;
-  border-radius: 12px;
+}
+.time-status-wrapper > p,
+.details-wrapper > p,
+.container > :is(button.reserved, button.seated) {
+  font-size: clamp(14px, 0.1vw, 20px);
 }
 
 .container {
-  width: calc(100% - calc(24px * 2) - 4px);
+  width: calc(100% - calc(min(2vw, 24px) * 2) - 4px);
   height: 16%;
   background-color: white;
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px;
+  padding: min(2vw, 24px);
   margin-bottom: 8px;
   cursor: pointer;
 }
 
 .time-status-wrapper {
-  width: 18%;
+  width: 80px;
   padding-right: 12px;
 }
 
@@ -28,24 +32,8 @@
   width: 90%;
   height: 50%;
   padding: 4px 0px;
-  font-size: 18px;
   margin: 0;
   text-align: center;
-}
-
-.details-wrapper {
-  width: calc(80% - 108px);
-  padding-right: 8px;
-}
-
-.details-wrapper > p {
-  width: 100%;
-  height: 33%;
-  font-size: 16px;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 p.reserved {
@@ -56,11 +44,25 @@ p.seated {
   color: #162149;
 }
 
+.details-wrapper {
+  width: 70%;
+  padding-right: 8px;
+}
+
+.details-wrapper > p {
+  width: 100%;
+  height: 33%;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .container > button {
-  min-width: 100px;
+  width: 15%;
+  min-width: 60px;
   height: 44px;
   border-radius: 6px;
-  font-size: 20px;
   cursor: pointer;
 }
 
@@ -74,4 +76,23 @@ button.seated {
   background-color: white;
   color: #162149;
   border: 1px solid #162149;
+}
+
+@media (height <= 655px) and (width <= 320px) {
+  .cards-wrapper {
+    width: calc(100% - 16px);
+    height: fit-content;
+  }
+  .container {
+    width: calc(100% - calc(12px * 2) - 4px);
+    height: 88px;
+    padding: 12px;
+  }
+  .time-status-wrapper {
+    width: 60px;
+    padding: 0;
+  }
+  .details-wrapper {
+    width: 140px;
+  }
 }

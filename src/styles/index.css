@@ -1,5 +1,5 @@
 body {
-  width: 100vw;
+  width: calc(100vw - 20px);
   height: 100vh;
   margin: 0;
   background-color: #ced8e4;
@@ -15,7 +15,8 @@ body {
 
 body > main {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 8px;
   width: clamp(320px, 100%, 1024px);
   height: 655px;
 }
@@ -24,4 +25,12 @@ main > h1 {
   text-align: center;
   font-weight: 400;
   font-size: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+@media (height <= 655px) and (width <= 320px) {
+  body > main {
+    overflow: auto;
+    height: fit-content;
+    padding-bottom: 24px;
+  }
 }
