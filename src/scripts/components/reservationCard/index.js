@@ -1,28 +1,52 @@
-import printOutReservationStatus from "../../utils/printOutReservationStatus";
+import printReservationStatus from "../../utils/printReservationStatus";
+import fitTimeTemplate from "../../utils/fitTimeTemplate";
 
 async function Card(response) {
   const cardsWrapper = document.querySelector(".cards-wrapper");
+
+  const appendChildLoop = (parents, childrenArr) => {
+    childrenArr.forEach((child) => parents.appendChild(child));
+  };
 
   response
     .filter((res) => res.status !== "done")
     .forEach((res) => {
       const newList = document.createElement("li");
-      const wrapperDiv = document.createElement("div");
+      const timeStatusWrapper = document.createElement("div");
+
       const time = document.createElement("p");
       const state = document.createElement("p");
       const button = document.createElement("button");
-
       newList.className = "container";
+      timeStatusWrapper.className = "time-status-wrapper";
       time.className = "time";
       state.className = "state";
-      time.innerHTML = res.timeReserved;
-      printOutReservationStatus(state, res.status);
-      printOutReservationStatus(button, res.status);
 
-      wrapperDiv.appendChild(time);
-      wrapperDiv.appendChild(state);
-      newList.appendChild(wrapperDiv);
-      newList.appendChild(button);
+      fitTimeTemplate(time, res.timeReserved);
+      printReservationStatus(state, res.status);
+      printReservationStatus(button, res.status);
+
+      const detailsWrapper = document.createElement("div");
+      const reservationNames = document.createElement("p");
+      const personNum = document.createElement("p");
+      const menuInfo = document.createElement("p");
+      detailsWrapper.className = "details-wrapper";
+      reservationNames.className = "reservation-names";
+      personNum.className = "persons-num";
+      menuInfo.className = "menu-info";
+
+      reservationNames.innerHTML = `${res.customer.name} - ${res.tables
+        .map((table) => `${table.name}`)
+        .join(", ")}`;
+      personNum.innerHTML = `성인 ${String(res.customer.adult).padStart(2, "0")}
+      아이 ${String(res.customer.child).padStart(2, "0")}`;
+      menuInfo.innerHTML = res.menus
+        .map((menu) => `${menu.name}(${menu.qty})`)
+        .join(", ");
+
+      appendChildLoop(detailsWrapper, [reservationNames, personNum, menuInfo]);
+      appendChildLoop(timeStatusWrapper, [time, state]);
+      appendChildLoop(newList, [timeStatusWrapper, detailsWrapper, button]);
 
       cardsWrapper.appendChild(newList);
       button.addEventListener("click", () => {
@@ -36,7 +60,7 @@ async function Card(response) {
         } else if (res.status === "done") {
           newList.remove();
         }
-        printOutReservationStatus(state, res.status);
+        printReservationStatus(state, res.status);
       });
     });
 }
