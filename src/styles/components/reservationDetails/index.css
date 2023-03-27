@@ -1,4 +1,4 @@
-.details-wrap {
+.details-container {
   text-align: center;
   width: clamp(240px, 40%, 360px);
   height: calc(80% - 24px * 2);
@@ -35,14 +35,14 @@ dt {
   color: rgb(145, 145, 145);
 }
 
-p {
+.details-container > p {
   font-size: 23px;
   margin: 0;
   padding: 12px 0px;
 }
 
 @media (max-height: 655px) and (max-width: 320px) {
-  .details-wrap {
+  .details-container {
     display: none;
   }
 }

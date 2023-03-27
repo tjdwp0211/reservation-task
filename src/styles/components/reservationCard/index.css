@@ -8,6 +8,7 @@
 .details-wrapper > p,
 .container > :is(button.reserved, button.seated) {
   font-size: clamp(14px, 0.1vw, 20px);
+  padding: 4px 0px;
 }
 
 .container {
@@ -31,7 +32,6 @@
 .time-status-wrapper > p {
   width: 90%;
   height: 50%;
-  padding: 4px 0px;
   margin: 0;
   text-align: center;
 }
