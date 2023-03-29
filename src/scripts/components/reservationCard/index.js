@@ -2,7 +2,6 @@ import "../../../styles/components/reservationCard/index.css";
 import printReservationStatus from "../../utils/printReservationStatus";
 import fitTimeTemplate from "../../utils/fitTimeTemplate";
 import stateHandler from "../../utils/stateHandler";
-import Details from "../reservationDetails";
 
 function Card(response) {
   const { handler } = stateHandler(response[0]);
@@ -13,11 +12,10 @@ function Card(response) {
 
   response
     .filter((res) => res.status !== "done")
-    .forEach((res) => {
+    .forEach((res, i) => {
       const newList = document.createElement("li");
       newList.addEventListener("click", () => {
         handler(res);
-        Details();
         if (window.innerWidth <= 720) {
           const DetailComponent = document.querySelector(".details-container");
           const closeButton = document.querySelector(".close");
@@ -66,7 +64,6 @@ function Card(response) {
 
       cardsWrapper.appendChild(newList);
       button.addEventListener("click", (e) => {
-        e.stopPropagation();
         if (res.status === "reserved") {
           res.status = "seated";
           button.innerHTML = "착석 중";
@@ -75,7 +72,9 @@ function Card(response) {
           res.status = "done";
           button.innerHTML = "퇴석";
         } else if (res.status === "done") {
+          e.stopPropagation();
           newList.remove();
+          handler(response[i + 1]);
         }
         printReservationStatus(state, res.status);
       });
