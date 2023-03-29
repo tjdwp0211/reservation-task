@@ -2,6 +2,7 @@ import "../../../styles/components/reservationCard/index.css";
 import printReservationStatus from "../../utils/printReservationStatus";
 import fitTimeTemplate from "../../utils/fitTimeTemplate";
 import stateHandler from "../../utils/stateHandler";
+import Details from "../reservationDetails";
 
 function Card(response) {
   const { handler } = stateHandler(response[0]);
@@ -16,6 +17,7 @@ function Card(response) {
       const newList = document.createElement("li");
       newList.addEventListener("click", () => {
         handler(res);
+        Details();
         if (window.innerWidth <= 720) {
           const DetailComponent = document.querySelector(".details-container");
           const closeButton = document.querySelector(".close");

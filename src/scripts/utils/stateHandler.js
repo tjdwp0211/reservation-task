@@ -1,4 +1,4 @@
-import Details from "../components/reservationDetails";
+// import Details from "../components/reservationDetails";
 
 let initialState = null;
 
@@ -7,7 +7,7 @@ const stateHandler = (state) => {
 
   const handler = (newState) => {
     initialState = newState;
-    Details();
+    // Details();
   };
 
   return {
