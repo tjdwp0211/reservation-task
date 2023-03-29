@@ -7,9 +7,10 @@ import Details from "./components/reservationDetails/index";
 
 export default (async function componentsBasket() {
   const res = await getReservationList();
+  const responsefiltering = res.filter((item) => item.status !== "done");
 
   return {
-    card: Card(res),
-    details: Details(res),
+    card: Card(responsefiltering),
+    details: Details(responsefiltering),
   };
 })();
