@@ -4,12 +4,6 @@
   height: 80%;
   overflow-y: scroll;
 }
-.time-status-wrapper > p,
-.details-wrapper > p,
-.container > :is(button.reserved, button.seated) {
-  font-size: clamp(14px, 1.1vw, 16px);
-  padding: 4px 0px;
-}
 
 .container {
   width: calc(100% - calc(min(2vw, 24px) * 2) - 4px);
@@ -23,23 +17,26 @@
   margin-bottom: 8px;
   cursor: pointer;
 }
+.time-status-wrapper > p,
+.details-wrapper > p,
+.container > :is(button.reserved, button.seated) {
+  font-size: clamp(14px, 1.1vw, 16px);
+  padding: 4px 0px;
+}
 
 .time-status-wrapper {
   width: 60px;
   padding-right: 12px;
 }
-
 .time-status-wrapper > p {
   width: 90%;
   height: 50%;
   margin: 0px;
   text-align: center;
 }
-
 p.reserved {
   color: #3bb94c;
 }
-
 p.seated {
   color: #162149;
 }
@@ -48,7 +45,6 @@ p.seated {
   width: calc(70% - 60px);
   padding-right: 8px;
 }
-
 .details-wrapper > p {
   width: 100%;
   height: 33%;
@@ -65,20 +61,18 @@ p.seated {
   border-radius: 6px;
   cursor: pointer;
 }
-
 button.reserved {
   background-color: #162149;
   color: white;
   border: 1px solid white;
 }
-
 button.seated {
   background-color: white;
   color: #162149;
   border: 1px solid #162149;
 }
 
-@media (max-height: 655px) and (max-width: 720px) {
+@media only screen and (max-width: 720px) {
   .cards-wrapper {
     width: calc(100% - 16px);
     height: fit-content;
