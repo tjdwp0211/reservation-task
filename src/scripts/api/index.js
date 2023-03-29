@@ -5,10 +5,10 @@ export default async function getReservationList() {
   };
   try {
     const { reservations } = await fetch(
-      "https://frontend.tabling.co.kr/v1/store/9533/reservations",
+      "https://frontend.tabling.co.kr/v1/store/9533/reservations?",
       config
     ).then((res) => res.json());
-    return await reservations;
+    return reservations;
   } catch (err) {
     return err;
   }
