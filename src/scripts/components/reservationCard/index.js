@@ -1,9 +1,11 @@
+import "../../../styles/components/reservationCard/index.css";
 import printReservationStatus from "../../utils/printReservationStatus";
 import fitTimeTemplate from "../../utils/fitTimeTemplate";
+import stateHandler from "../../utils/stateHandler";
 
-async function Card(response) {
+function Card(response) {
+  const { handler } = stateHandler(response[0]);
   const cardsWrapper = document.querySelector(".cards-wrapper");
-
   const appendChildLoop = (parents, childrenArr) => {
     childrenArr.forEach((child) => parents.appendChild(child));
   };
@@ -12,11 +14,22 @@ async function Card(response) {
     .filter((res) => res.status !== "done")
     .forEach((res) => {
       const newList = document.createElement("li");
-      const timeStatusWrapper = document.createElement("div");
+      newList.addEventListener("click", () => {
+        handler(res);
+        if (window.innerWidth <= 720) {
+          const test = document.querySelector(".details-container");
+          const closeButton = document.querySelector(".close");
+          test.style.visibility = "visible";
+          closeButton.style.visibility = "visible";
+        }
+      });
 
-      const time = document.createElement("p");
-      const state = document.createElement("p");
       const button = document.createElement("button");
+      const { timeStatusWrapper, time, state } = {
+        timeStatusWrapper: document.createElement("div"),
+        time: document.createElement("p"),
+        state: document.createElement("p"),
+      };
       newList.className = "container";
       timeStatusWrapper.className = "time-status-wrapper";
       time.className = "time";
@@ -26,15 +39,16 @@ async function Card(response) {
       printReservationStatus(state, res.status);
       printReservationStatus(button, res.status);
 
-      const detailsWrapper = document.createElement("div");
-      const reservationNames = document.createElement("p");
-      const personNum = document.createElement("p");
-      const menuInfo = document.createElement("p");
+      const { detailsWrapper, reservationNames, personNum, menuInfo } = {
+        detailsWrapper: document.createElement("div"),
+        reservationNames: document.createElement("p"),
+        personNum: document.createElement("p"),
+        menuInfo: document.createElement("p"),
+      };
       detailsWrapper.className = "details-wrapper";
       reservationNames.className = "reservation-names";
       personNum.className = "persons-num";
       menuInfo.className = "menu-info";
-
       reservationNames.innerHTML = `${res.customer.name} - ${res.tables
         .map((table) => `${table.name}`)
         .join(", ")}`;
@@ -49,7 +63,8 @@ async function Card(response) {
       appendChildLoop(newList, [timeStatusWrapper, detailsWrapper, button]);
 
       cardsWrapper.appendChild(newList);
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (e) => {
+        e.stopPropagation();
         if (res.status === "reserved") {
           res.status = "seated";
           button.innerHTML = "착석 중";
