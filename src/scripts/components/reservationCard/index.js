@@ -17,9 +17,9 @@ function Card(response) {
       newList.addEventListener("click", () => {
         handler(res);
         if (window.innerWidth <= 720) {
-          const test = document.querySelector(".details-container");
+          const DetailComponent = document.querySelector(".details-container");
           const closeButton = document.querySelector(".close");
-          test.style.visibility = "visible";
+          DetailComponent.style.visibility = "visible";
           closeButton.style.visibility = "visible";
         }
       });
