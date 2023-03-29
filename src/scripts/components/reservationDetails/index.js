@@ -5,20 +5,31 @@ import stateHandler from "../../utils/stateHandler";
 
 function Details() {
   const { state } = stateHandler();
+  const gridWrappers = document.querySelectorAll(".grid-area");
+  const container = document.querySelector(".details-container");
+
+  if (!state) {
+    container.remove();
+    const undefinedReservation = document.querySelector("h1");
+    undefinedReservation.textContent = "예약자 없음";
+    return null;
+  }
+
   const { status, timeReserved, timeRegistered, customer } = state;
 
-  const gridWrappers = document.querySelectorAll(".grid-area");
-
   if (window.innerWidth <= 720) {
+    const closeButton = document.querySelector(".close");
     const overlay = document.createElement("div");
     overlay.className = "overlay";
-    const container = document.querySelector(".details-container");
-    const closeButton = document.querySelector(".close");
+    document.querySelector("#app").appendChild(overlay);
+
     closeButton.addEventListener("click", () => {
       closeButton.style.visibility = "hidden";
       container.style.visibility = "hidden";
+      overlay.style.visibility = "hidden";
     });
-    document.querySelector("#app").appendChild(overlay);
+  } else {
+    container.style.visibility = "visible";
   }
 
   const reservationInfo = gridWrappers[0].querySelectorAll("dd");
