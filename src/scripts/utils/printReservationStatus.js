@@ -1,13 +1,12 @@
 function printOutReservationStatus(el, status) {
-  const element = el;
   if (status === "reserved") {
-    element.innerHTML = "예약";
-    element.className = "reserved";
+    el.innerHTML = "예약";
+    el.className = "reserved";
   } else if (status === "seated") {
-    element.innerHTML = "착석 중";
-    element.className = "seated";
+    el.innerHTML = "착석 중";
+    el.className = "seated";
   } else if (status === "done") {
-    element.innerHTML = "퇴석";
+    el.innerHTML = "퇴석";
   }
 }
 
