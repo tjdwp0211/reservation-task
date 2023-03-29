@@ -6,6 +6,7 @@
   padding: 24px;
   background-color: white;
   position: relative;
+  z-index: 2;
 }
 p {
   margin: 0;
@@ -48,6 +49,17 @@ dt {
   word-break: keep-all;
 }
 
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.387);
+}
+
 .close {
   all: unset;
   cursor: pointer;
@@ -70,5 +82,11 @@ dt {
   }
   .close {
     visibility: hidden;
+  }
+}
+
+@media only screen and (width > 720px) {
+  .details-container {
+    visibility: visible;
   }
 }
