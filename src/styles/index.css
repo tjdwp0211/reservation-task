@@ -13,12 +13,12 @@ body {
 }
 
 body > main {
+  width: clamp(320px, 100%, 1024px);
+  min-height: 655px;
+  height: 655px;
   display: flex;
   justify-content: center;
   gap: 8px;
-  width: clamp(320px, 100%, 1024px);
-  height: 655px;
-  min-height: 655px;
 }
 
 main > h1 {
@@ -27,7 +27,7 @@ main > h1 {
   font-size: clamp(2.2rem, 4vw, 3.2rem);
 }
 
-@media (max-height: 655px) and (max-width: 720px) {
+@media only screen and (max-width: 720px) {
   body {
     overflow: hidden;
   }
@@ -36,5 +36,6 @@ main > h1 {
     height: fit-content;
     min-height: fit-content;
     padding-bottom: 24px;
+    gap: 0px;
   }
 }
