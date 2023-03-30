@@ -46,10 +46,9 @@ main::-webkit-scrollbar {
   }
   body > main {
     width: 100%;
-    height: calc(100vh - (2.2rem + (21.44 * 2)));
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: fit-content;
+    /* height: calc(100vh - (2.2rem + (21.44 * 2))); */
+    /* overflow-y: auto;
+    overflow-x: hidden; */
     min-height: fit-content;
     padding-bottom: 24px;
   }
