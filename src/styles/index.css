@@ -19,7 +19,7 @@ body > main {
   height: 655px;
   display: flex;
   justify-content: center;
-  gap: 0px;
+  gap: 16px;
 }
 
 main > h1 {
@@ -31,7 +31,6 @@ main > h1 {
 @media only screen and (max-width: 720px) {
   body {
     width: 100vw;
-    /* overflow: hidden; */
     padding: 0px;
   }
   body > main {
@@ -42,6 +41,5 @@ main > h1 {
     height: fit-content;
     min-height: fit-content;
     padding-bottom: 24px;
-    gap: 16px;
   }
 }
