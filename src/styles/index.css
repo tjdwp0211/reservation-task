@@ -15,7 +15,7 @@ body {
 
 body > main {
   width: clamp(320px, 100%, 1024px);
-  /* min-height: 655px; */
+  min-height: 655px;
   height: 655px;
   display: flex;
   justify-content: center;
@@ -47,7 +47,6 @@ main::-webkit-scrollbar {
   body > main {
     width: 100%;
     height: calc(100vh - (2.2rem + (21.44 * 2)));
-    /* height: fit-content; */
     overflow-y: auto;
     overflow-x: hidden;
     height: fit-content;
