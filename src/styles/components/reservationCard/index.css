@@ -5,9 +5,9 @@
   height: 80%;
   overflow-y: scroll;
   overflow-x: hidden;
+
   -ms-overflow-style: none;
   scrollbar-width: none;
-  overflow: -moz-scrollbars-none;
 }
 
 .cards-wrapper::-webkit-scrollbar {
