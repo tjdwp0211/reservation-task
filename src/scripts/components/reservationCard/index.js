@@ -15,15 +15,15 @@ function Card(response) {
     const newList = document.createElement("li");
     newList.addEventListener("click", () => {
       handler(res);
+      Details();
       if (window.innerWidth <= 720) {
         const detailComponent = document.querySelector(".details-container");
         const closeButton = document.querySelector(".close");
         const overlay = document.querySelector(".overlay");
-        detailComponent.style.visibility = "visible";
+        detailComponent.classList.add("slide-up");
         closeButton.style.visibility = "visible";
         overlay.style.visibility = "visible";
       }
-      Details();
     });
 
     const button = document.createElement("button");
@@ -66,6 +66,7 @@ function Card(response) {
 
     cardsWrapper.appendChild(newList);
     button.addEventListener("click", (e) => {
+      if (window.innerWidth <= 720) e.stopPropagation();
       if (res.status === "reserved") {
         res.status = "seated";
         button.innerHTML = "착석 중";

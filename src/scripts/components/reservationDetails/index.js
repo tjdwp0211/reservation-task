@@ -24,12 +24,9 @@ function Details() {
     document.querySelector("#app").appendChild(overlay);
 
     closeButton.addEventListener("click", () => {
-      closeButton.style.visibility = "hidden";
-      container.style.visibility = "hidden";
-      overlay.style.visibility = "hidden";
+      container.classList.remove("slide-up");
+      overlay.remove();
     });
-  } else {
-    container.style.visibility = "visible";
   }
 
   const reservationInfo = gridWrappers[0].querySelectorAll("dd");
