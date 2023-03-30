@@ -48,11 +48,13 @@ p.seated {
   width: calc(70% - 60px);
   padding-right: 8px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .details-wrapper > p:not(.full-text-wrapper, .full-text-container) {
   width: 100%;
   height: 33%;
-  margin: 4px 0;
   padding: 0;
   white-space: nowrap;
   overflow: hidden;
