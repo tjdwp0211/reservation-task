@@ -3,6 +3,7 @@ import printReservationStatus from "../../utils/printReservationStatus";
 import fitTimeTemplate from "../../utils/fitTimeTemplate";
 import stateHandler from "../../utils/stateHandler";
 import Details from "../reservationDetails";
+import ToolTip from "./toolTip";
 
 function Card(response) {
   const { handler } = stateHandler(response[0]);
@@ -47,44 +48,23 @@ function Card(response) {
       personNum: document.createElement("p"),
       menuInfo: document.createElement("p"),
     };
+
+    const menuList = res.menus.map((menu) => `${menu.name}(${menu.qty})`);
+    const tableNames = res.tables.map((table) => `${table.name}`);
+
     detailsWrapper.className = "details-wrapper";
     reservationNames.className = "reservation-names";
     personNum.className = "persons-num";
     menuInfo.className = "menu-info";
-    reservationNames.innerHTML = `${res.customer.name} - ${res.tables
-      .map((table) => `${table.name}`)
-      .join(", ")}`;
+    reservationNames.innerHTML = `${res.customer.name} - ${tableNames.join(
+      ", "
+    )}`;
     personNum.innerHTML = `성인 ${String(res.customer.adult).padStart(2, "0")}
       아이 ${String(res.customer.child).padStart(2, "0")}`;
-
-    const menuList = res.menus.map((menu) => `${menu.name}(${menu.qty})`);
     menuInfo.innerHTML = menuList.join(", ");
 
-    const wholeMenuList = document.createElement("p");
-    wholeMenuList.className = "whole-menu-list";
-    menuList.forEach((text) => {
-      const container = document.createElement("p");
-      container.innerHTML = text;
-      container.className = "menu-elenemt";
-      wholeMenuList.appendChild(container);
-    });
-    menuInfo.appendChild(wholeMenuList);
-    menuInfo.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (wholeMenuList.style.display === "flex")
-        wholeMenuList.style.display = "none";
-      else {
-        wholeMenuList.style.display = "flex";
-        const toolTipOverlay = document.createElement("div");
-        toolTipOverlay.addEventListener("click", () => {
-          wholeMenuList.style.display = "none";
-          toolTipOverlay.remove();
-        });
-
-        toolTipOverlay.className = "whole-menu-list-overlay";
-        document.querySelector("#app").appendChild(toolTipOverlay);
-      }
-    });
+    ToolTip(reservationNames, [res.customer.name, ...tableNames]);
+    ToolTip(menuInfo, menuList);
 
     appendChildLoop(detailsWrapper, [reservationNames, personNum, menuInfo]);
     appendChildLoop(timeStatusWrapper, [time, state]);
