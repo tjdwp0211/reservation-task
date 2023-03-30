@@ -83,7 +83,7 @@ function Card(response) {
       } else if (res.status === "done") {
         e.stopPropagation();
         newList.remove();
-        handler(response[i + 1]);
+        handler(response.at(i + 1) || response.at(i - 1));
         Details();
       }
       printReservationStatus(state, res.status);
