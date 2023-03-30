@@ -1,12 +1,22 @@
 .cards-wrapper {
   all: unset;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px 17px 0px 0px;
+  box-sizing: content-box;
+}
+
+.scroll-container {
   width: 60%;
   height: 80%;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 .container {
-  width: calc(100% - calc(min(2vw, 24px) * 2) - 4px);
+  width: calc(100% - calc(min(2vw, 24px) * 2));
   height: 16%;
   background-color: white;
   border-radius: 12px;
@@ -74,11 +84,16 @@ button.seated {
 
 @media only screen and (max-width: 720px) {
   .cards-wrapper {
-    width: calc(100% - 16px);
+    width: 100%;
+    height: fit-content;
+    padding: 0px;
+  }
+  .scroll-container {
+    width: calc(100% - 17px);
     height: fit-content;
   }
   .container {
-    width: calc(100% - calc(12px * 2) - 4px);
+    width: calc(100% - calc(12px * 2) + 1px);
     height: 88px;
     padding: 12px;
   }
