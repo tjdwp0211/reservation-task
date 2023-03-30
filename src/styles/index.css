@@ -1,5 +1,5 @@
 body {
-  width: 100vw;
+  width: (100vw - 16px);
   height: calc(100vh - 32px);
   margin: 0px;
   background-color: #ced8e4;
@@ -19,6 +19,7 @@ body > main {
   height: 655px;
   display: flex;
   justify-content: center;
+  gap: 0px;
 }
 
 main > h1 {
@@ -29,16 +30,18 @@ main > h1 {
 
 @media only screen and (max-width: 720px) {
   body {
-    overflow: hidden;
+    width: 100vw;
+    /* overflow: hidden; */
     padding: 0px;
   }
   body > main {
     width: 100%;
+    height: fit-content;
     overflow-y: auto;
     overflow-x: hidden;
     height: fit-content;
     min-height: fit-content;
     padding-bottom: 24px;
-    gap: 0px;
+    gap: 16px;
   }
 }
