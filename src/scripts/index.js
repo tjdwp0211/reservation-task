@@ -11,6 +11,8 @@ function handleMediaChange(e) {
   const popupCloseButton = document.querySelector(".close");
   const overlay = document.querySelector(".overlay");
 
+  if (popupCloseButton === null) return;
+
   if (e.matches) {
     popupCloseButton.style.visibility = "visible";
   } else {
