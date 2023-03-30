@@ -23,7 +23,6 @@
 .details-wrapper > p,
 .container > :is(button.reserved, button.seated) {
   font-size: clamp(14px, 1.1vw, 16px);
-  padding: 4px 0px;
 }
 
 .time-status-wrapper {
@@ -36,6 +35,7 @@
   height: 50%;
   margin: 0px;
   text-align: center;
+  padding: 4px 0px;
 }
 p.reserved {
   color: #3bb94c;
@@ -47,11 +47,13 @@ p.seated {
 .details-wrapper {
   width: calc(70% - 60px);
   padding-right: 8px;
+  position: relative;
 }
-.details-wrapper > p {
+.details-wrapper > p:not(.full-text-wrapper, .full-text-container) {
   width: 100%;
   height: 33%;
-  margin: 0;
+  margin: 4px 0;
+  padding: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -73,6 +75,44 @@ button.seated {
   background-color: white;
   color: #162149;
   border: 1px solid #162149;
+}
+
+.whole-menu-list {
+  width: 70%;
+  min-width: 300px;
+  height: fit-content;
+  background-color: white;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.503);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.503);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.503);
+  position: absolute;
+  bottom: 33%;
+  left: 20%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  border-radius: 15px;
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-elenemt {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  padding: 2px 0px;
+  white-space: pre-line;
+}
+
+.whole-menu-list-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: inherit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 @media only screen and (max-width: 720px) {
