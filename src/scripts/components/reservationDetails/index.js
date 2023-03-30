@@ -23,9 +23,11 @@ function Details() {
     overlay.className = "overlay";
     document.querySelector("#app").appendChild(overlay);
 
-    closeButton.addEventListener("click", () => {
-      container.classList.remove("slide-up");
-      overlay.remove();
+    [closeButton, overlay].forEach((el) => {
+      el.addEventListener("click", () => {
+        container.classList.remove("slide-up");
+        overlay.remove();
+      });
     });
   }
 
@@ -34,13 +36,14 @@ function Details() {
   const requestedTerm = gridWrappers[2].querySelectorAll("dd");
 
   [...reservationInfo, ...clientInfo, ...requestedTerm].forEach((el, i) => {
-    if (i === 0) printOutReservationStatus(el, status);
-    else if (i === 1) fitTimeTemplate(el, timeReserved);
-    else if (i === 2) fitTimeTemplate(el, timeRegistered);
-    else if (i === 3) el.innerHTML = customer.name;
-    else if (i === 4) el.innerHTML = customer.level || "-";
-    else if (i === 5) el.innerHTML = customer.memo || "-";
-    else if (i === 6) el.innerHTML = customer.request || "-";
+    const elenemt = el;
+    if (i === 0) printOutReservationStatus(elenemt, status);
+    else if (i === 1) fitTimeTemplate(elenemt, timeReserved);
+    else if (i === 2) fitTimeTemplate(elenemt, timeRegistered);
+    else if (i === 3) elenemt.innerHTML = customer.name;
+    else if (i === 4) elenemt.innerHTML = customer.level || "-";
+    else if (i === 5) elenemt.innerHTML = customer.memo || "-";
+    else if (i === 6) elenemt.innerHTML = customer.request || "-";
   });
 }
 
