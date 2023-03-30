@@ -72,21 +72,21 @@ dt {
 
 @media only screen and (max-width: 720px) {
   .details-container {
-    width: calc(100% - 24px * 2);
-    height: 100%;
+    width: 70%;
+    height: 80%;
     position: fixed;
-    visibility: hidden;
+    bottom: -80%;
+    transform: scaleY(0);
+    transform-origin: 0 100%;
+    transition: all 0.7s ease-in-out;
+    -webkit-transition: all 0.7s ease-in-out;
+  }
+  .slide-up {
+    width: calc(100% - 24px * 2);
+    transform: scaleY(1);
+    bottom: -2%;
   }
   .grid-area {
     grid-template-rows: max(8vh, 20px) max(8vh, 20px) max(8vh, 20px);
-  }
-  .close {
-    visibility: hidden;
-  }
-}
-
-@media only screen and (width > 720px) {
-  .details-container {
-    visibility: visible;
   }
 }
