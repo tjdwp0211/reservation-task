@@ -76,6 +76,7 @@ dt {
     height: 80%;
     position: fixed;
     bottom: -80%;
+    opacity: 0;
     transform: scaleY(0);
     transform-origin: 0 100%;
     transition: all 0.7s ease-in-out;
@@ -83,6 +84,7 @@ dt {
   }
   .slide-up {
     width: calc(100% - 24px * 2);
+    opacity: 1;
     transform: scaleY(1);
     bottom: -2%;
   }
